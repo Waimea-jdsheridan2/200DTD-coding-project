@@ -1,9 +1,9 @@
 /**
  * ------------------------------------------------------------------------
- * PROJECT NAME HERE
+ * 2-Player based game
  * Level 2 programming project
  *
- * by YOUR NAME HERE
+ * by Jayarn Sheridan
  *
  * BRIEF PROJECT DESCRIPTION HERE
  * BRIEF PROJECT DESCRIPTION HERE
