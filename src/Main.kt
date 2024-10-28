@@ -56,12 +56,15 @@ for (counter in gridList) {
     println("+")
 }
 
-fun showGameState() {
+fun showGameState(counters: String, gridList: MutableList<String>) {
 
 }
 
-fun getPlayerMove() {
+fun getPlayerMove(counters: String, gridList: MutableList<String>) {
+println("Enter 'G' or 'S' to do your move")
+    while (true) {
 
+    }
 }
 
 
