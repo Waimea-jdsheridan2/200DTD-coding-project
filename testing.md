@@ -14,9 +14,9 @@ The project involves the programming of a two-player game.
 
 The game has the following features and/or rules:
 
-- GAME FEATURE / RULE
-- GAME FEATURE / RULE
-- GAME FEATURE / RULE
+- The player can only move a coin left once every time it is their turn.
+- The goal of this game is to be the player who takes the gold coin from the other player.
+- The player cannot move a coin to the left if there is a coin right next to it to the left.
 - GAME FEATURE / RULE
 
 ---
@@ -25,7 +25,7 @@ The game has the following features and/or rules:
 
 The following game features / functionality and player actions will need to be tested:
 
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
+- Getting the player names.
 - FUNCTIONALITY / FEATURE / ACTION TO TEST
 - FUNCTIONALITY / FEATURE / ACTION TO TEST
 - FUNCTIONALITY / FEATURE / ACTION TO TEST

@@ -33,7 +33,7 @@ fun main() {
     while (true) {
         showGrid(Grid)
         playerMove(Grid, firstPlayer)
-        
+
         if (firstPlayer == player1) {
             firstPlayer = player2
         }
