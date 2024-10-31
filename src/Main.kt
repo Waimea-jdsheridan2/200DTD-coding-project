@@ -16,55 +16,76 @@
  * Program entry point
  */
 fun main() {
-    val grid = mutableListOf <String>()
-    val player1 = mutableListOf <String>()
-    val player2 = mutableListOf <String>()
-    val counters = mutableListOf<String>()
+    val Grid = mutableListOf <String>()
 
-    player1.add("Player 1")
-    player2.add("Player 2")
-    counters.add("G")
-    counters.add("S")
+    setupGame(Grid)
+    // Getting the player names
+    println("Enter player1")
+    val player1 = readLine()
 
-    setupGame(grid)
-    showGameState()
-    getPlayerMove()
+    println("Enter player2")
+    val player2 = readLine()
+
+    showStart()
+    var firstPlayer = player1
+
+    //Main loop for the game
+    while (true) {
+        showGrid(Grid)
+        playerMove(Grid, firstPlayer)
+        
+        if (firstPlayer == player1) {
+            firstPlayer = player2
+        }
+        else {
+            firstPlayer = player1
+        }
+    }
+}
+
+//Talking about the game, rules, how to play etc.
+fun showStart() {
+    print("Welcome to 'Old Gold'!")
+    print("The rules of this grid game are simple")
+    print("You can only move a coin to the left once every time it is your turn")
+    print("The goal of this game is to be the one who wins the gold coin")
+    print("You cannot move a coin to the left if there is a coin right next to it on the left")
+
+
 }
 
 //Setting up the game
-fun setupGame(gridList: MutableList<String>) {
-//Getting player 1's name
-    print("Enter player1: ")
-    val player1 = readln()
-
-//Getting player 2's name
-    print("Enter player2: ")
-    val player2 = readln()
-
-//Building the grid
-print("+----------".repeat(gridList.size))
-    println("+")
-
-//Show the counters
-for (counter in gridList) {
-    print("| %-8s ".format(counter))
+fun setupGame(Grid: MutableList<String>) {
+repeat(20){
+    Grid.add(" ")
 }
+    repeat(4){
+        Grid.add("S")
+    }
+    Grid.add("G")
+
+    Grid.shuffle()
+}
+
+//building the Grid
+fun showGrid(Grid: MutableList<String>) {
+   print("╔═════╗".repeat(Grid.size))
+    print("╗")
+
+    for (row in Grid) {
+        print("| %-2s|".format(row))
+    }
     println("|")
 
     //Build the bottom
-    print("+----------".repeat(gridList.size))
-    println("+")
+    print("╚═════╝".repeat(Grid.size))
+    print("╝")
 }
 
-fun showGameState(counters: String, gridList: MutableList<String>) {
-
-}
-
-fun getPlayerMove(counters: String, gridList: MutableList<String>) {
-println("Enter 'G' or 'S' to do your move")
-    while (true) {
-
-    }
+fun playerMove(Grid: MutableList<String>, name: String) {
+    println("Your move $name")
+    var movedFrom = readln()
+    var movedTo = readln()
 }
 
 
