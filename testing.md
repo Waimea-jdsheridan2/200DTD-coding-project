@@ -26,10 +26,10 @@ The game has the following features and/or rules:
 The following game features / functionality and player actions will need to be tested:
 
 - Getting the player names.
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
+- Showing the Grid and Counters.
+- Getting the players move.
+- Moving the counters around.
+- Ending the game once one of the players gets the Gold.
 
 The following tests will be run against the completed game. The tests should result in the expected outcomes shown.
 
