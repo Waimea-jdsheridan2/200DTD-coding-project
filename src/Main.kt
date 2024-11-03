@@ -1,6 +1,6 @@
 /**
  * ------------------------------------------------------------------------
- * 2-Player based game
+ * 2-Player based game (Old Gold)
  * Level 2 programming project
  *
  * by Jayarn Sheridan
