@@ -17,7 +17,6 @@ The game has the following features and/or rules:
 - The player can only move a coin left once every time it is their turn.
 - The goal of this game is to be the player who takes the gold coin from the other player.
 - The player cannot move a coin to the left if there is a coin right next to it to the left.
-- GAME FEATURE / RULE
 
 ---
 
@@ -26,34 +25,34 @@ The game has the following features and/or rules:
 The following game features / functionality and player actions will need to be tested:
 
 - Getting the player names.
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
-- FUNCTIONALITY / FEATURE / ACTION TO TEST
+- Showing the Grid and Counters.
+- Getting the players move.
+- Moving the counters around.
+- Ending the game once one of the players wins the Gold.
 
 The following tests will be run against the completed game. The tests should result in the expected outcomes shown.
 
 
-### TEST NAME HERE
+### Getting the Player Names
 
-TEST DESCRIPTION HERE
+The code should tell the player that it wants their names.
 
 #### Test Data / Actions to Use
 
-TEST DATA TO USE DETAILED HERE
+The players must type in their name e.g. "Jayarn" and "Brian".
 
 #### Expected Outcome
 
-EXPECTED OUTCOME DETAILED HERE
+The game should use these names throughout the games progression.
 
 
-### TEST NAME HERE
+### Showing the Grid and Counters
 
-TEST DESCRIPTION HERE
+The game should setup the grid and show the counters in random positions.
 
 #### Test Data / Actions to Use
 
-TEST DATA TO USE DETAILED HERE
+
 
 #### Expected Outcome
 
@@ -91,13 +90,12 @@ EXPECTED OUTCOME DETAILED HERE
 
 ## Evidence / Results of Testing
 
-### TEST NAME HERE
+### Getting the Player Names
 
-ACTUAL RESULTS OF TESTING SHOWN HERE
+Video Link:
+https://mywaimeaschool-my.sharepoint.com/:v:/g/personal/jdsheridan2_waimea_school_nz/EdDRH-GywnxDj0j2GpmQuIIBEmgkoc2EBWo3GUiGSSaJhQ?e=97ch8h
 
-![](images/placeholder.jpg)
-
-NOTES REGARDING THE RESULTS HERE
+The use types in the names and the system stores them into the system, the names are also valid.
 
 
 ### TEST NAME HERE
