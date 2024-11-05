@@ -82,7 +82,7 @@ fun showGrid(grid:MutableList<String>) {
     println("┘")
 }
 
-fun forceNumber(prompt: String): Int {
+fun coinPosition(prompt: String): Int {
     while (true) {
         // Display the question to the user
         print(prompt)
@@ -101,7 +101,7 @@ fun playerMove(currentPlayer: String, coins: MutableList<String>): Boolean {
     var move = false
     while (!move) {
         // Ask the player which coin they want to move
-        val position = forceNumber("Enter the position of the coin you'd like to move or remove: ") - 1
+        val position = coinPosition("Enter the position of the coin you'd like to move or remove: ") - 1
 
         // Check if the coin has any possible moves
         if (position > 0 && coins[position - 1] != " ") {
@@ -123,7 +123,7 @@ fun playerMove(currentPlayer: String, coins: MutableList<String>): Boolean {
         }
         else {
             // Ask player which square they want to move the coin to
-            val newSquare = forceNumber("Enter the square number to move the coin to:") - 1
+            val newSquare = coinPosition("Enter the square number to move the coin to:") - 1
 
             // Does the move
             move = moveCoin(coins, position, newSquare)
