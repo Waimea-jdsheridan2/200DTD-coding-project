@@ -23,10 +23,10 @@ fun main() {
     println("Enter Player2's name:")
     val player2 = readln()
 
-    showIntro()
+    showStart()
     var currentPlayer = player1
 
-    // Main loop for the game
+    // Main loop for the game.
     while (true) {
         showGrid(grid)
         playerMove(grid, currentPlayer)
@@ -40,8 +40,8 @@ fun main() {
     }
 }
 
-//explaining the rules of the game
-fun showIntro() {
+//Talking about the game, rules, how to play etc.
+fun showStart() {
     println("Welcome to 'Old Gold'!")
     println("The rules of this grid game are simple")
     println("You can only move a coin to the left once every time it is your turn")
@@ -55,7 +55,10 @@ fun setupGame(grid: MutableList<String>) {
         grid.add(" ")
     }
     repeat(4){
+
         grid.add("C")
+
+        grid.add("S")
     }
     grid.add("G")
 
@@ -66,25 +69,66 @@ fun setupGame(grid: MutableList<String>) {
 fun showGrid(grid:MutableList<String>) {
     //Building the top
     print("┌────┐".repeat(grid.size))
-    println("┐")
 
+    println("┐")
     for (row in grid) {
         print("| %-2s |".format(row))
     }
+
     println("|")
 
     // Building the bottom
     print("└────┘".repeat(grid.size))
     println("┘")
-
-
 }
 
-fun playerMove(grid: MutableList<String>, name: String) {
-    //Making the player choose their move
-    println("Your turn $name")
-    println("what coin would you like to move?")
-    var movedFrom = readln()
-    println("and where would you like to move it?")
-    var movedTo = readln()
+fun forceNumber(prompt: String): Int {
+    while (true) {
+        // Display the question to the user
+        print(prompt)
+        val input = readln()
+
+        // Check if the input is a number or not
+        val number = input.toIntOrNull()
+        if (number != null) return number
+
+        // If it is not a number, re ask the prompt.
+        println("You can't choose a letter here. Please enter a number.")
+    }
+}
+
+fun playerMove(currentPlayer: String, coins: MutableList<String>): Boolean {
+    var move = false
+    while (!move) {
+        // Ask the player which coin they want to move
+        val position = forceNumber("Enter the position of the coin you'd like to move or remove: ") - 1
+
+        // Check if the coin has any possible moves
+        if (position > 0 && coins[position - 1] != " ") {
+            println("Sorry that coin has no possible moves")
+            continue
+        }
+
+        // Check if it's in position 1 and remove it
+        if (position == 0) {
+            println("$currentPlayer has removed a coin")
+            val removedCoin = coins[0]
+            coins[0] = " "
+            // Check if the removed coin was the gold coin.
+            if (removedCoin == "G") {
+                return true
+            } else {
+                return false
+            }
+        }
+        else {
+            // Ask player which square they want to move the coin to
+            val newSquare = forceNumber("Enter the square number to move the coin to:") - 1
+
+            // Does the move
+            move = moveCoin(coins, position, newSquare)
+        }
+    }
+
+    return false
 }
