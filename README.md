@@ -1,6 +1,6 @@
-# PROJECT NAME HERE
+# Old Gold
 
-### Level 2 Programming Project by YOUR NAME HERE
+### Level 2 Programming Project by Jayarn Sheridan
 
 This project is assessed against [AS91896](https://www.nzqa.govt.nz/nqfdocs/ncea-resource/achievements/2019/as91896.pdf)
 
@@ -8,11 +8,11 @@ This project is assessed against [AS91896](https://www.nzqa.govt.nz/nqfdocs/ncea
 
 The project involves the programming of a two-player game.
 
-BRIEF PROJECT DESCRIPTION HERE
-BRIEF PROJECT DESCRIPTION HERE
-BRIEF PROJECT DESCRIPTION HERE
-BRIEF PROJECT DESCRIPTION HERE
-
+1. This is a 2-player game that involves a 20 square table and counters that the players have to move.
+2. The counters are labeled 'S' for Silver and 'G' for Gold, the table is a 20-square horizontal grid.
+3. The players move the counters to the left when it is their turn and have to make there move get the gold counter.
+4. If one of the players gets the gold counter then that player has won the game and the other one loses.
+5. Once one of the players have won, the game can either end or start-over.
 
 ## Source Code
 

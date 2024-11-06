@@ -14,33 +14,105 @@
 /**
  * Program entry point
  */
+import kotlin.random.Random
+
 fun main() {
-    val grid = mutableListOf <String> ()
-    setupGame(grid)
-    //getting player names
-    println("Enter Player1's name:")
+    //Setting up game Grid.
+    val game = buildGrid()
+
+    //Asking for the players names.
+    print("Enter Player 1's name: ")
     val player1 = readln()
-    println("Enter Player2's name:")
+    print("Enter Player 2's name: ")
     val player2 = readln()
 
+    var turn = 1
+    var takeCoin: Int
     showStart()
-    var currentPlayer = player1
 
-    // Main loop for the game.
+    //Main loop for the game.
     while (true) {
-        showGrid(grid)
-        playerMove(grid, currentPlayer)
 
-        if (currentPlayer == player1) {
-            currentPlayer = player2
+        displayGrid(game)
+
+        //Making the Players have turns.
+        if (turn == 1) {
+            println("$player1's turn.")
+        } else {
+            println("$player2's turn.")
         }
-        else {
-            currentPlayer = player1
+
+        //Taking the Coin
+        takeCoin = 0
+        if (game.elementAt(0) != " ") {
+            println("Take coin on the left? [Y]/[N]")
+            if (readln().first().uppercase() == "Y") {
+                // If taken coin is Gold then Stop game loop
+                if (game.elementAt(0).toString() == "G") {
+                    break
+                } else {
+                    game[0] = " "
+                    displayGrid(game)
+                }
+                takeCoin = 1
+            }
         }
+
+        //Moving the coin in the grid
+        if (takeCoin != 1) {
+
+            var movedCoin: Int?
+            var moveTo: Int?
+
+            while (true) {
+                print("Which coin would you like to move? (See number below coin): ")
+                movedCoin = readln().toIntOrNull()
+                if (movedCoin == null) continue
+                movedCoin--
+
+                if (game.elementAt(movedCoin) == " ") {
+                    println("No coin there!")
+                    continue
+                }
+
+                print("Where would you like to move the coin? (See number below space): ")
+                moveTo = readln().toIntOrNull()
+                if (moveTo == null) continue
+                moveTo--
+
+                //If we get down to this part, everything must be going well.
+                break
+            }
+
+            game[moveTo!!] = game.elementAt(movedCoin!!)
+            game[movedCoin] = " "
+
+            // Taking the coin
+            if (moveTo == 0) {
+                if (game.elementAt(0) != " ") {
+                    displayGrid(game)
+                    println("Take coin on the left? [Y]/[N]")
+                    if (readln().first().uppercase() == "Y") {
+                        if (game.elementAt(0).toString() == "G") {
+                            break
+                        } else {
+                            game[0] = " "
+                        }
+                    }
+                }
+            }
+        }
+        // Switch the players turns
+        turn = if (turn == 1) 2 else 1
     }
+    // Check to see who has won, if anybody has won, we break
+
+    if (turn == 1) println("$player1 won!")
+    if (turn == 2) println("$player2 won!")
+
 }
 
-//Talking about the game, rules, how to play etc.
+//Talking about the game rules and how to play.
 fun showStart() {
     println("Welcome to 'Old Gold'!")
     println("The rules of this grid game are simple")
@@ -49,86 +121,54 @@ fun showStart() {
     println("You cannot move a coin to the left if there is a coin right next to it on the left")
 }
 
-//Setting up the game
-fun setupGame(grid: MutableList<String>) {
-    repeat(15){
-        grid.add(" ")
+//Building and showing the grid.
+fun displayGrid(grid: MutableList <String>) {
+    print("╔")
+    print("═════╦".repeat(grid.size-1))
+    println("═════╗")
+
+    for (item in grid) {
+        print("║ ")
+        if (item == "G"){
+            print("%-4s".format(item))
+        }else {
+            print("%-4s".format(item))
+        }
     }
+    println("║")
+
+    print("╠")
+    print("═════╬".repeat(grid.size-1))
+    println("═════╣")
+
+    for (index in grid.indices) {
+        print("║")
+        print(" %-4s".format(index + 1))
+    }
+    println("║")
+
+    print("╚")
+    print("═════╩".repeat(grid.size-1))
+    println("═════╝")
+}
+
+//Showing the counters in the grid.
+fun buildGrid(): MutableList<String> {
+    //Placing the coins
+    val list = mutableListOf<String>()
+
+    //Place 20 empty spaces.
+    repeat(20){
+        list.add( " " )
+    }
+
+    //Place silver coins.
     repeat(4){
-
-        grid.add("C")
-
-        grid.add("S")
-    }
-    grid.add("G")
-
-    grid.shuffle()
-}
-
-//Setting up the grid
-fun showGrid(grid:MutableList<String>) {
-    //Building the top
-    print("┌────┐".repeat(grid.size))
-
-    println("┐")
-    for (row in grid) {
-        print("| %-2s |".format(row))
+        list.add(Random.nextInt(1, list.size), "S")
     }
 
-    println("|")
+    //Place gold coin.
+    list.add(Random.nextInt(1, list.size), "G")
 
-    // Building the bottom
-    print("└────┘".repeat(grid.size))
-    println("┘")
-}
-
-fun coinPosition(prompt: String): Int {
-    while (true) {
-        // Display the question to the user
-        print(prompt)
-        val input = readln()
-
-        // Check if the input is a number or not
-        val number = input.toIntOrNull()
-        if (number != null) return number
-
-        // If it is not a number, re ask the prompt.
-        println("You can't choose a letter here. Please enter a number.")
-    }
-}
-
-fun playerMove(currentPlayer: String, coins: MutableList<String>): Boolean {
-    var move = false
-    while (!move) {
-        // Ask the player which coin they want to move
-        val position = coinPosition("Enter the position of the coin you'd like to move or remove: ") - 1
-
-        // Check if the coin has any possible moves
-        if (position > 0 && coins[position - 1] != " ") {
-            println("Sorry that coin has no possible moves")
-            continue
-        }
-
-        // Check if it's in position 1 and remove it
-        if (position == 0) {
-            println("$currentPlayer has removed a coin")
-            val removedCoin = coins[0]
-            coins[0] = " "
-            // Check if the removed coin was the gold coin.
-            if (removedCoin == "G") {
-                return true
-            } else {
-                return false
-            }
-        }
-        else {
-            // Ask player which square they want to move the coin to
-            val newSquare = coinPosition("Enter the square number to move the coin to:") - 1
-
-            // Does the move
-            move = moveCoin(coins, position, newSquare)
-        }
-    }
-
-    return false
+    return list
 }

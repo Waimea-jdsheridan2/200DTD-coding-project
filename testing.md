@@ -25,10 +25,9 @@ The following game features / functionality and player actions will need to be t
 
 - Getting the player names.
 - Showing the Grid and Counters.
-- Getting the players move.
+- Making the players do their moves.
 - Moving the counters around.
 - Ending the game once one of the players wins the Gold.
-- Ending the game once one of the players gets the Gold.
 
 The following tests will be run against the completed game. The tests should result in the expected outcomes shown.
 
@@ -57,67 +56,73 @@ Running the code many times to see if it works.
 
 The grid should be shown with the Counters shown in random places in the grid.
 
-### TEST NAME HERE
+### Making the players do their moves
 
-TEST DESCRIPTION HERE
-
-#### Test Data / Actions to Use
-
-TEST DATA TO USE DETAILED HERE
-
-#### Expected Outcome
-
-EXPECTED OUTCOME DETAILED HERE
-
-
-### TEST NAME HERE
-
-TEST DESCRIPTION HERE
+The players should be able to do their moves with the counters.
 
 #### Test Data / Actions to Use
 
-TEST DATA TO USE DETAILED HERE
+The 2 players should make moves each time it is their turn.
 
 #### Expected Outcome
 
-EXPECTED OUTCOME DETAILED HERE
+The game should tell them to do a move.
 
+### Moving the Counters around
+
+The counters will be moving around on the grid from the players moves.
+
+#### Test Data / Actions to Use
+
+The players should be able to do a normal move (any row to the left of the counter).
+
+#### Expected Outcome
+
+The counters should get moved into a new location on the grid by the player.
+
+### Ending the game once one of the players wins the Gold
+
+Once one of the players wins the gold, the game should end.
+
+### Test Data / Actions to Use
+
+The players will keep taking turns until one of them wins the gold.
+
+### Expected Outcome
+
+One of the players wins the gold coin and the game ends.
 
 ---
-
 
 ## Evidence / Results of Testing
 
 ### Getting the Player Names
 
 This video shows the players getting their names:
-https://mywaimeaschool-my.sharepoint.com/:v:/g/personal/jdsheridan2_waimea_school_nz/EdDRH-GywnxDj0j2GpmQuIIBEmgkoc2EBWo3GUiGSSaJhQ?e=97ch8h
+https://mywaimeaschool-my.sharepoint.com/:v:/g/personal/jdsheridan2_waimea_school_nz/EcMGpb_9KNxApY4RnIRyyasBvZ1unQOwZ1lmHovLeMcksw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=T93nC2
 
-The users types in the names and the system accepts them and uses them.
-
+The users type in their names and the system accepts them and uses them.
 
 ### Showing the grid and Counters
 
 This video shows the grid and counters being formed:
-https://mywaimeaschool-my.sharepoint.com/:v:/g/personal/jdsheridan2_waimea_school_nz/EYJndBIyoOdGqvYWU6wxCtoBWz03fBgrxf2TsyKypnA6Tw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=yCnHZb
+https://mywaimeaschool-my.sharepoint.com/:v:/g/personal/jdsheridan2_waimea_school_nz/ESzasvnKDLNOiB4JYczqBksB7G__DS02RMwx4RMvAL3_MA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=GzBwRo
 
 The video shows the grid being built and the counters getting randomly placed throughout the grid.
 
+### Making the players do their moves
 
-### TEST NAME HERE
+This video shows the players doing their moves:
+https://mywaimeaschool-my.sharepoint.com/:v:/g/personal/jdsheridan2_waimea_school_nz/Ef4mfph_n59LliYXEGTUZNQB7jKI4wpI77wYOvMWR9ermA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=EJNXRP
 
-ACTUAL RESULTS OF TESTING SHOWN HERE
-
-![](images/placeholder.jpg)
-
-NOTES REGARDING THE RESULTS HERE
+The players are seen doing their moves via a number below the counters, 
+when they type in a new number, the coin get moved that the location that is shown above the new number.
 
 
-### TEST NAME HERE
+### Ending the game once one of the players wins the Gold
 
-ACTUAL RESULTS OF TESTING SHOWN HERE
+This video shows the player winning the gold and the game ending:
+https://mywaimeaschool-my.sharepoint.com/:v:/g/personal/jdsheridan2_waimea_school_nz/EYaML3F_RfdFkzlJSJ0N6AcBvA3NnkaqvkSV8KzfPAzb9Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=9wIbSK
 
-![](images/placeholder.jpg)
-
-NOTES REGARDING THE RESULTS HERE
+Brian and Jayarn take turns to see who gets the Gold first, after alot of back and forth switching, Brian comes out victorious and the game ends.
 
